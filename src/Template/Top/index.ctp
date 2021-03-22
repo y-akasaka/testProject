@@ -14,7 +14,7 @@
       <a href="">
         <img src="//s.kusurinomadoguchi.com/20210318080325/img/pref/pref_top_logo.png" alt="EPARK くすりの窓口">
       </a>
-      <div class="subtitle"><?= $testData ?></div>
+      <div>薬局&ドラッグストア検索・予約サイト</div>
     </div>
     <ul>
       <li><a href="">クーポン</a></li>
@@ -27,29 +27,62 @@
   <div>
     <?= 
       $this->Form->create(null, [
-        'url' => ['action' => 'execute'],
         'type' => 'get',
+        'url' => ''
       ]);
 
-      echo $this->Form->input('area', [
-        'type' => 'input',
-        'label' => "エリア"
-        ]);
+      echo $this->Form->input('エリア・駅名', [
+        'placeholder' => 'エリア・駅名',
+        'name' => 'area',
+      ]);
+      echo $this->Form->input('キーワード', [
+        'placeholder' => 'キーワード',
+        'name' => 'keyword',
+      ]);
       echo $this->Form->button('検索');
 
       echo $this->Form->end();
     ?>
-    <p>
-      <ul>
+    <div>人気条件</div>
+    <ul>
       <li><a href="">ネット受付OK</a></li>
       <li><a href="">カードOK</a></li>
       <li><a href="">深夜営業</a></li>
       <li><a href="">日祝営業</a></li>
       <li><a href="">近くの薬局</a></li>
-      </ul>
-    </p>
+    </ul>
   </div>
 
+  <div>
+    <?= 
+      $this->Form->create(null, [
+        'type' => 'get',
+        'url' => ''
+      ]);
+
+      echo $this->Form->button('EPARK会員でログイン');
+
+      echo $this->Form->end();
+    ?>
+    <p><a href="">▶会員登録がお済みでない方はこちら</a></p>
+  </div>
+
+  <div>
+    <?php foreach($users as $user): ?>
+      <div><?= $user->last_name; ?></div>
+      <div><?= $user->first_name; ?></div>
+      <div><?= $user->email; ?></div>
+      <div><?= $user->phone_number; ?></div>
+      <div>
+        <?php
+          if ($user->sex == 0) {
+            echo '男';
+          }
+          echo '女';
+        ?>
+      </div>
+    <?php endforeach; ?>
+  </div>
 </body>
 
 </html>
@@ -57,5 +90,10 @@
 <style>
   li {
     list-style: none;
+    display: inline;
+    padding-left: 5px;
+  }
+  li + li {
+    border-left: 0.5px solid #333;
   }
 </style>
