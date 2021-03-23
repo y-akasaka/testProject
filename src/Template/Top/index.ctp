@@ -68,6 +68,21 @@
   </div>
 
   <div>
+    <?= 
+        $this->Form->create(null, [
+          'type' => 'get',
+          'url' => [
+            'controller' => 'pharmacyShops',
+            'action' => 'index']
+        ]);
+
+        echo $this->Form->button('薬局情報');
+
+        echo $this->Form->end();
+      ?>
+  </div>
+
+  <div>
     <?php foreach($users as $user): ?>
       <div><?= $user->last_name; ?></div>
       <div><?= $user->first_name; ?></div>
