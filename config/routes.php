@@ -65,7 +65,10 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/cake', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $routes->connect('/', ['controller' => 'Top', 'action' => 'index']);
     $routes->connect('/pharmacy_shops', ['controller' => 'PharmacyShops', 'action' => 'index']);
-    $routes->connect('/pharmacy_shop/prefectures', ['controller' => 'PharmacyShops', 'action' => 'detail']);
+    $routes->connect('/pharmacy_shop/:area_l', 
+        ['controller' => 'PharmacyShops', 'action' => 'detail']
+    )
+    ->setPass(['area_l']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
