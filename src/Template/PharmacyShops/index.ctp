@@ -8,12 +8,12 @@
 </head>
 <body>
 <div>
-    <?php foreach($pharmacyShops as $shop): ?>
+    <?php foreach($prefectures as $prefecture): ?>
       <?= $this->Html->link(
-            "${shop['area_l']}", [
+            "${prefecture['name']}", [
             'controller' => 'PharmacyShops',
-            'action'=> 'detail',
-            $shop['area_l']
+            'action' => 'detail',
+            "${prefecture['id']}"
           ]); 
       ?>
     <?php endforeach; ?>

@@ -64,11 +64,10 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/cake', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $routes->connect('/', ['controller' => 'Top', 'action' => 'index']);
-    $routes->connect('/pharmacy_shops', ['controller' => 'PharmacyShops', 'action' => 'index']);
-    $routes->connect('/pharmacy_shop/:area_l', 
+    $routes->connect('/prefectures', ['controller' => 'PharmacyShops', 'action' => 'index']);
+    $routes->connect('/pharmacy_shop/:id', 
         ['controller' => 'PharmacyShops', 'action' => 'detail']
-    )
-    ->setPass(['area_l']);
+    );
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

@@ -11,21 +11,18 @@ class PharmacyShopsController extends AppController
     {
         $this->autoLayout = false;
 
-        $pharmacyShopsTbl = TableRegistry::getTableLocator()->get('PharmacyShops');
-        $pharmacyShops = $pharmacyShopsTbl->getPharmacyShops();
+        $prefecturesTbl = TableRegistry::getTableLocator()->get('Prefectures');
+        $prefectures = $prefecturesTbl->getPrefectures();
 
-        $this->set('pharmacyShops', $pharmacyShops);
+        $this->set('prefectures', $prefectures);
     }
 
-    public function detail(Request $request)
+    public function detail($id)
     {
-        var_dump($request);
-        var_dump($this->getRequest()->getData());
-        // $this->getRequest()->getData('area_l')
-
-        $pharmacyShopsTbl = TableRegistry::getTableLocator()->get('PharmacyShops');
-        $prefecurePharmacyShop = $pharmacyShopsTbl->getPrefecturePharmacyShops($request['area_l']);
+        $prefecturesTbl = TableRegistry::getTableLocator()->get('Prefectures');
+        $prefecturePharmacyShops = $prefecturesTbl->getPrefecturePharmacyShops($id);
+        var_dump($prefecturePharmacyShops);
         
-        $this->set('prefecturePharmacyShops', $prefecurePharmacyShop);
+        $this->set('prefecturePharmacyShops', $prefecturePharmacyShops);
     }
 }
