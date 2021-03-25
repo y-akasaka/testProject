@@ -21,7 +21,7 @@ class PharmacyShopsController extends AppController
     {
         $prefecturesTbl = TableRegistry::getTableLocator()->get('Prefectures');
         $prefecturePharmacyShops = $prefecturesTbl->getPrefecturePharmacyShops($id);
-        var_dump($prefecturePharmacyShops);
+        // var_dump($prefecturePharmacyShops);
         
         $this->set('prefecturePharmacyShops', $prefecturePharmacyShops);
     }

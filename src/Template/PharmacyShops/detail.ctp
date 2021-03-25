@@ -12,6 +12,7 @@
       <?php foreach($prefecturePharmacyShop['pharmacy_shops'] as  $shop): ?>
         <!-- <?= $shop['shop_name'] ?> -->
         <?= $shop['shop_name_kana'] ?>
+        <?= $shop['shop_name'] ?>
         <?= $shop['zip_code'] ?>
         <?= $shop['address1'] ?>
         <?= $shop['address2'] ?>
