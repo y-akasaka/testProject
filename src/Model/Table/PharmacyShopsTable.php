@@ -13,13 +13,14 @@ class PharmacyShopsTable extends Table
         ]);
     }
 
-    // public function prefectures(): HasMany
-    // {
-    //     return $this->hasMany('pharmacy_shops');
-    // }
-
     public function getPharmacyShops()
     {
         return $this->find()->all();
+    }
+
+
+    public function getDetailPharmacyShop($shopId)
+    {
+        return $this->find()->where(['shop_id' => $shopId])->all();
     }
 }

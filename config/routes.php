@@ -66,6 +66,9 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Top', 'action' => 'index']);
     $routes->connect('/prefectures', ['controller' => 'PharmacyShops', 'action' => 'index']);
     $routes->connect('/pharmacy_shop/:id', 
+        ['controller' => 'PharmacyShops', 'action' => 'list']
+    );
+    $routes->connect('/pharmacy_shop/:shopId', 
         ['controller' => 'PharmacyShops', 'action' => 'detail']
     );
 

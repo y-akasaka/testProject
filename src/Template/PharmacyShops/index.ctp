@@ -12,7 +12,7 @@
       <?= $this->Html->link(
             "${prefecture['name']}", [
             'controller' => 'PharmacyShops',
-            'action' => 'detail',
+            'action' => 'list',
             "${prefecture['id']}"
           ]); 
       ?>
