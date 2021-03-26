@@ -7,18 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-<div>
-    <?php foreach($prefecturePharmacyShops as $prefecturePharmacyShop): ?>
-      <?php foreach($prefecturePharmacyShop['pharmacy_shops'] as  $shop): ?>
-        <!-- <?= $shop['shop_name'] ?> -->
-        <?= $shop['shop_name_kana'] ?>
-        <?= $shop['shop_name'] ?>
-        <?= $shop['zip_code'] ?>
-        <?= $shop['address1'] ?>
-        <?= $shop['address2'] ?>
-        <?= $shop['mon'] ?>
-      <?php endforeach; ?>
-    <?php endforeach; ?>
-  </div>
+    <div>
+        <?php foreach($prefecturePharmacyShops as $prefecturePharmacyShop): ?>
+            <?php foreach($prefecturePharmacyShop['pharmacy_shops'] as $shop): ?>
+                <!-- <?php echo $shop['shop_name_kana'] ?> -->
+                <?php echo $shop['mon'] ?>
+                <?php echo $shop['zip_code'] ?>
+                <?php echo $shop['shop_name'] ?>
+                <?php echo $shop['shop_name_kana'] ?>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+    </div>
 </body>
 </html>
