@@ -7,17 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>東京都の薬局・ドラッグストア</h2>
-    
+    <h2>
+    <?php foreach($title as $item): ?>
+        <!-- <?= $item['name'] ?> -->
+        <?= $item['name'] ?>
+    <?php endforeach; ?>
+    の薬局・ドラッグストア</h2>
+
+
     <div>
-        <?= $prefecturePharmacyShops->item['name'] ?>
-    </div>
-    <div class="l-wrapper_02 card-radius_02">
         <?php foreach($prefecturePharmacyShops as $prefecturePharmacyShop): ?>
             <?php foreach($prefecturePharmacyShop['pharmacy_shops'] as $shop): ?>
                 <div class="card_02">
                     <div class="card__title_02">
-                    <?= $prefecturePharmacyShop['name'] ?>
                         <?= $this->Html->link(
                             "${shop['shop_name']}", []);
                         ?>
@@ -48,10 +50,6 @@
 </html>
 
 <style>
-.l-wrapper_02 {
-  margin: 1rem auto;
-  width: 380px;
-}
 
 .card_02 {
   box-sizing: border-box;
