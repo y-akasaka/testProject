@@ -17,15 +17,21 @@ class PharmacyShopsController extends AppController
         $this->set('prefectures', $prefectures);
     }
 
-    public function detail($id)
+    public function list($id)
     {
         $prefecturesTbl = TableRegistry::getTableLocator()->get('Prefectures');
         $prefecturePharmacyShops = $prefecturesTbl->getPrefecturePharmacyShops($id);
 
         $title = $prefecturesTbl->getName($id);
-        // var_dump($title);
 
         $this->set('title', $title);
         $this->set('prefecturePharmacyShops', $prefecturePharmacyShops);
+    }
+
+    public function detail($shopId)
+    {
+        $pharmacyShopsTbl = TableRegistry::getTableLocator()->get('PharmacyShops');
+        $pharmacyShop = $pharmacyShopsTbl->getDetailPharmacyShop($shopId);
+        $this->set('pharmacyShop', $pharmacyShop);
     }
 }
