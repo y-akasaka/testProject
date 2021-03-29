@@ -23,6 +23,7 @@ class PharmacyShopsController extends AppController
         $prefecturePharmacyShops = $prefecturesTbl->getPrefecturePharmacyShops($id);
 
         $title = $prefecturesTbl->getName($id);
+        // var_dump($title);
 
         $this->set('title', $title);
         $this->set('prefecturePharmacyShops', $prefecturePharmacyShops);

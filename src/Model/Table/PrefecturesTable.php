@@ -32,6 +32,6 @@ class PrefecturesTable extends Table
 
     public function getName($id)
     {
-        return $this->find()->select(['name'])->where(['id' => $id])->all();
+        return $this->find()->select(['id', 'name'])->where(['id' => $id])->first()->toArray();
     }
 }
