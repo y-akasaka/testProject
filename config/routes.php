@@ -44,6 +44,7 @@ use Cake\Routing\Route\DashedRoute;
  *
  */
 Router::defaultRouteClass(DashedRoute::class);
+Router::extensions(['json', 'xml']);
 
 Router::scope('/', function (RouteBuilder $routes) {
     // Register scoped middleware for in scopes.
@@ -65,7 +66,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/cake', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $routes->connect('/', ['controller' => 'Top', 'action' => 'index']);
     $routes->connect('/prefectures', ['controller' => 'PharmacyShops', 'action' => 'index']);
-    $routes->connect('/pharmacy_shop/:id', 
+    $routes->resources('/pharmacy_shop/:id', 
         ['controller' => 'PharmacyShops', 'action' => 'detail']
     );
 
